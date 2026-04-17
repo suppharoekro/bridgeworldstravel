@@ -1,88 +1,439 @@
 ---
 const buyLink = "https://traveljoy.sompo.co.th?partner=suppharoek-rojwisitkun";
+const facebookLink = "https://www.facebook.com/brokersompo/";
 ---
 
 <html lang="th">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bridge Worlds Travel</title>
+    <title>Bridge Worlds Travel | ประกันเดินทางต่างประเทศ</title>
     <meta
       name="description"
-      content="ประกันเดินทางต่างประเทศ อุ่นใจก่อนทุกทริป พร้อมข้อมูลความคุ้มครองยอดฮิตและลิงก์ซื้อออนไลน์"
+      content="ประกันเดินทางต่างประเทศ อุ่นใจก่อนทุกทริป พร้อมข้อมูลความคุ้มครองยอดฮิตและช่องทางติดต่อ"
     />
+    <style>
+      :root {
+        --primary: #1d4ed8;
+        --primary-dark: #1e40af;
+        --text: #0f172a;
+        --muted: #475569;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --border: #e2e8f0;
+        --soft-blue: #eff6ff;
+        --soft-orange: #fff7ed;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background:
+          radial-gradient(circle at top left, #dbeafe 0%, transparent 28%),
+          linear-gradient(180deg, #f8fbff 0%, #f8fafc 100%);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .hero {
+        padding: 64px 0 36px;
+      }
+
+      .hero-box {
+        background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+        border: 1px solid #dbeafe;
+        border-radius: 28px;
+        padding: 48px 36px;
+        box-shadow: 0 20px 50px rgba(30, 64, 175, 0.08);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        background: #dbeafe;
+        color: var(--primary-dark);
+        font-weight: 700;
+        font-size: 14px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: 52px;
+        line-height: 1.15;
+        margin: 0 0 18px;
+      }
+
+      .lead {
+        font-size: 22px;
+        line-height: 1.8;
+        color: var(--muted);
+        max-width: 900px;
+        margin: 0 0 28px;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 14px;
+        padding: 15px 22px;
+        font-weight: 700;
+        transition: 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #ffffff;
+        box-shadow: 0 10px 24px rgba(29, 78, 216, 0.25);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+      }
+
+      .btn-outline {
+        background: #ffffff;
+        color: var(--primary);
+        border: 1px solid #bfdbfe;
+      }
+
+      .btn-outline:hover {
+        background: #eff6ff;
+      }
+
+      .section {
+        padding: 18px 0 8px;
+      }
+
+      .section-title {
+        font-size: 34px;
+        margin: 0 0 20px;
+      }
+
+      .section-subtitle {
+        color: var(--muted);
+        margin: 0 0 28px;
+        line-height: 1.8;
+        font-size: 18px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 26px;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      }
+
+      .card-number {
+        width: 42px;
+        height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: var(--primary-dark);
+        font-weight: 800;
+        margin-bottom: 14px;
+      }
+
+      .card h3 {
+        margin: 0 0 12px;
+        font-size: 24px;
+        line-height: 1.4;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 17px;
+      }
+
+      .highlight-box {
+        margin-top: 34px;
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        color: #ffffff;
+        border-radius: 24px;
+        padding: 30px;
+        box-shadow: 0 20px 40px rgba(30, 64, 175, 0.22);
+      }
+
+      .highlight-box h2 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 30px;
+      }
+
+      .highlight-box p {
+        margin: 0 0 20px;
+        line-height: 1.8;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .notice {
+        margin-top: 36px;
+        background: var(--soft-orange);
+        border: 1px solid #fdba74;
+        border-radius: 20px;
+        padding: 22px;
+      }
+
+      .notice-title {
+        margin: 0 0 8px;
+        font-size: 20px;
+      }
+
+      .notice p {
+        margin: 0;
+        line-height: 1.8;
+        color: #9a3412;
+      }
+
+      .contact-box {
+        margin-top: 36px;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      }
+
+      .contact-box h2 {
+        margin-top: 0;
+        margin-bottom: 18px;
+        font-size: 30px;
+      }
+
+      .contact-item {
+        margin: 10px 0;
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .contact-item strong {
+        color: var(--text);
+      }
+
+      .contact-link {
+        color: var(--primary);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .contact-link:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        margin-top: 50px;
+        padding: 26px 0 36px;
+        color: #64748b;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        h1 {
+          font-size: 40px;
+        }
+
+        .lead {
+          font-size: 19px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-box {
+          padding: 34px 22px;
+        }
+
+        .section-title {
+          font-size: 28px;
+        }
+
+        .card h3 {
+          font-size: 21px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        h1 {
+          font-size: 34px;
+        }
+
+        .lead {
+          font-size: 18px;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
   </head>
-  <body style="font-family: Arial, sans-serif; margin: 0; background: #f8fafc; color: #111827;">
-    <main style="max-width: 1000px; margin: 0 auto; padding: 40px 20px;">
-      <h1 style="font-size: 42px; margin-bottom: 16px;">Bridge Worlds Travel</h1>
-      <p style="font-size: 20px; line-height: 1.7; color: #4b5563;">
-        ประกันเดินทางต่างประเทศ ตัวช่วยเพิ่มความอุ่นใจก่อนทุกทริป
-        ครอบคลุมเหตุไม่คาดคิดที่พบบ่อย เช่น ค่ารักษาพยาบาล เที่ยวบินล่าช้า
-        กระเป๋าเดินทางเสียหาย กระเป๋ามาช้า และพลาดต่อเครื่อง
-      </p>
 
-      <div style="margin: 24px 0 40px;">
-        <a
-          href={buyLink}
-          target="_blank"
-          rel="noopener"
-          style="display:inline-block; background:#1d4ed8; color:#fff; padding:14px 22px; text-decoration:none; border-radius:12px; font-weight:bold;"
-        >
-          ซื้อประกันเดินทาง
-        </a>
-      </div>
+  <body>
+    <main class="container">
+      <section class="hero">
+        <div class="hero-box">
+          <div class="eyebrow">ประกันเดินทางต่างประเทศ</div>
+          <h1>Bridge Worlds Travel</h1>
+          <p class="lead">
+            ตัวช่วยเพิ่มความอุ่นใจก่อนทุกทริป ครอบคลุมเหตุไม่คาดคิดที่พบบ่อย
+            เช่น ค่ารักษาพยาบาล เที่ยวบินล่าช้า กระเป๋าเดินทางเสียหาย
+            กระเป๋ามาช้า และพลาดต่อเครื่อง
+          </p>
 
-      <section id="coverage" style="margin-top: 40px;">
-        <h2>5 เรื่องเคลมยอดฮิตที่ควรรู้</h2>
-
-        <div style="background:#fff; padding:20px; border-radius:14px; margin-bottom:16px; border:1px solid #e5e7eb;">
-          <h3>1. ค่ารักษาพยาบาลเมื่อเจ็บป่วยระหว่างเดินทาง</h3>
-          <p>หากเกิดอาการเจ็บป่วยหรืออุบัติเหตุระหว่างทริป ประกันเดินทางช่วยลดภาระค่าใช้จ่ายและเพิ่มความอุ่นใจได้มากขึ้น</p>
-        </div>
-
-        <div style="background:#fff; padding:20px; border-radius:14px; margin-bottom:16px; border:1px solid #e5e7eb;">
-          <h3>2. เที่ยวบินล่าช้า</h3>
-          <p>เมื่อไฟลท์ดีเลย์จนกระทบแผนการเดินทาง ประกันเดินทางช่วยเรื่องค่าชดเชยตามเงื่อนไขของกรมธรรม์</p>
-        </div>
-
-        <div style="background:#fff; padding:20px; border-radius:14px; margin-bottom:16px; border:1px solid #e5e7eb;">
-          <h3>3. กระเป๋าเดินทางเสียหาย</h3>
-          <p>ล้อลากหัก ซิปแตก หรือกระเป๋าเสียหายระหว่างขนส่ง เป็นอีกเรื่องที่พบได้บ่อยในการเดินทางต่างประเทศ</p>
-        </div>
-
-        <div style="background:#fff; padding:20px; border-radius:14px; margin-bottom:16px; border:1px solid #e5e7eb;">
-          <h3>4. กระเป๋ามาช้าหรือสูญหาย</h3>
-          <p>หากไปถึงปลายทางแล้วกระเป๋ายังไม่มา ประกันช่วยลดความกังวลเรื่องค่าใช้จ่ายจำเป็นระหว่างรอได้</p>
-        </div>
-
-        <div style="background:#fff; padding:20px; border-radius:14px; margin-bottom:16px; border:1px solid #e5e7eb;">
-          <h3>5. พลาดต่อเครื่อง</h3>
-          <p>หากเที่ยวบินแรกมาช้าและทำให้ต่อไฟลท์ไม่ทัน ประกันเดินทางช่วยลดผลกระทบจากค่าใช้จ่ายที่เกิดขึ้นตามมา</p>
+          <div class="button-row">
+            <a class="btn btn-primary" href={buyLink} target="_blank" rel="noopener">
+              ซื้อประกันเดินทาง
+            </a>
+            <a class="btn btn-outline" href="#coverage">
+              ดูความคุ้มครอง
+            </a>
+          </div>
         </div>
       </section>
 
-      <section style="margin-top: 40px; background:#fff7ed; border:1px solid #fed7aa; padding:20px; border-radius:14px;">
-        <strong>หมายเหตุ:</strong>
-        ความคุ้มครองเป็นไปตามเงื่อนไขของกรมธรรม์ ผู้ซื้อควรศึกษารายละเอียดความคุ้มครอง
-        เงื่อนไข และข้อยกเว้นก่อนตัดสินใจทำประกันภัยทุกครั้ง
+      <section id="coverage" class="section">
+        <h2 class="section-title">5 เรื่องเคลมยอดฮิตที่ควรรู้</h2>
+        <p class="section-subtitle">
+          ก่อนเดินทางไปต่างประเทศ การมีประกันเดินทางช่วยลดความกังวลเรื่องค่าใช้จ่าย
+          และช่วยให้พร้อมรับมือกับเหตุการณ์ไม่คาดคิดได้มากขึ้น
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-number">1</div>
+            <h3>ค่ารักษาพยาบาลเมื่อเจ็บป่วยระหว่างเดินทาง</h3>
+            <p>
+              หากเกิดอาการเจ็บป่วยหรืออุบัติเหตุระหว่างทริป
+              ประกันเดินทางช่วยลดภาระค่าใช้จ่ายและเพิ่มความมั่นใจได้มากขึ้น
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">2</div>
+            <h3>เที่ยวบินล่าช้า</h3>
+            <p>
+              เมื่อไฟลท์ดีเลย์จนกระทบแผนการเดินทาง
+              ประกันเดินทางช่วยเรื่องค่าชดเชยตามเงื่อนไขของกรมธรรม์
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">3</div>
+            <h3>กระเป๋าเดินทางเสียหาย</h3>
+            <p>
+              ล้อลากหัก ซิปแตก หรือกระเป๋าเสียหายระหว่างขนส่ง
+              เป็นอีกเรื่องที่พบได้บ่อยในการเดินทางต่างประเทศ
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">4</div>
+            <h3>กระเป๋ามาช้าหรือสูญหาย</h3>
+            <p>
+              หากไปถึงปลายทางแล้วกระเป๋ายังไม่มา
+              ประกันช่วยลดความกังวลเรื่องค่าใช้จ่ายจำเป็นระหว่างรอได้
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">5</div>
+            <h3>พลาดต่อเครื่อง</h3>
+            <p>
+              หากเที่ยวบินแรกมาช้าและทำให้ต่อไฟลท์ไม่ทัน
+              ประกันเดินทางช่วยลดผลกระทบจากค่าใช้จ่ายที่เกิดขึ้นตามมา
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">✓</div>
+            <h3>ซื้อออนไลน์ได้สะดวก</h3>
+            <p>
+              เลือกแผนที่เหมาะกับทริปของคุณ และกดซื้อผ่านลิงก์ออนไลน์ได้ทันที
+              เพื่อเริ่มต้นการเดินทางอย่างมั่นใจมากขึ้น
+            </p>
+          </article>
+        </div>
+
+        <div class="highlight-box">
+          <h2>พร้อมก่อนเดินทาง เริ่มได้ที่นี่</h2>
+          <p>
+            เลือกประกันเดินทางที่เหมาะกับแผนทริปของคุณ
+            และกดซื้อออนไลน์ผ่านลิงก์ด้านล่างได้ทันที
+          </p>
+          <a class="btn btn-primary" href={buyLink} target="_blank" rel="noopener">
+            ซื้อประกันเดินทางตอนนี้
+          </a>
+        </div>
+
+        <div class="notice">
+          <h3 class="notice-title">หมายเหตุ</h3>
+          <p>
+            ความคุ้มครองเป็นไปตามเงื่อนไขของกรมธรรม์
+            ผู้ซื้อควรศึกษารายละเอียดความคุ้มครอง เงื่อนไข
+            และข้อยกเว้นก่อนตัดสินใจทำประกันภัยทุกครั้ง
+          </p>
+        </div>
+
+        <div class="contact-box">
+          <h2>ติดต่อและข้อมูลผู้แนะนำประกัน</h2>
+          <div class="contact-item">
+            <strong>ผู้แนะนำประกัน:</strong> นายหน้าประกันวินาศภัย
+          </div>
+          <div class="contact-item">
+            <strong>ใบอนุญาตเลขที่:</strong> 6204035177
+          </div>
+          <div class="contact-item">
+            <strong>Facebook:</strong>
+            <a
+              class="contact-link"
+              href={facebookLink}
+              target="_blank"
+              rel="noopener"
+            >
+              brokersompo
+            </a>
+          </div>
+        </div>
       </section>
-<section style="margin-top: 40px; background:#ffffff; padding:20px; border-radius:14px; border:1px solid #e5e7eb;">
-  <h2 style="margin-top:0;">ติดต่อและข้อมูลผู้แนะนำประกัน</h2>
-  <p style="margin:8px 0;">
-    นายหน้าประกันวินาศภัย ใบอนุญาตเลขที่ 6204035177
-  </p>
-  <p style="margin:8px 0;">
-    Facebook:
-    <a
-      href="https://www.facebook.com/brokersompo/"
-      target="_blank"
-      rel="noopener"
-      style="color:#1d4ed8; text-decoration:none; font-weight:bold;"
-    >
-      brokersompo
-    </a>
-  </p>
-</section>
     </main>
+
+    <footer>
+      © 2026 Bridge Worlds Travel
+    </footer>
   </body>
 </html>
