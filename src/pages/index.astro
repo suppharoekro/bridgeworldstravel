@@ -53,11 +53,20 @@ const facebookLink = "https://www.facebook.com/brokersompo/";
       }
 
       .hero-box {
-        background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+        background-image: url('/travel-bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         border: 1px solid #dbeafe;
         border-radius: 28px;
-        padding: 48px 36px;
+        overflow: hidden;
         box-shadow: 0 20px 50px rgba(30, 64, 175, 0.08);
+      }
+
+      .hero-overlay {
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(2px);
+        padding: 48px 36px;
       }
 
       .eyebrow {
@@ -134,6 +143,18 @@ const facebookLink = "https://www.facebook.com/brokersompo/";
         margin: 0 0 28px;
         line-height: 1.8;
         font-size: 18px;
+      }
+
+      .infographic-wrap {
+        margin: 0 0 34px;
+      }
+
+      .infographic-image {
+        width: 100%;
+        display: block;
+        border-radius: 24px;
+        border: 1px solid #dbeafe;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
       }
 
       .grid {
@@ -273,7 +294,7 @@ const facebookLink = "https://www.facebook.com/brokersompo/";
           grid-template-columns: 1fr;
         }
 
-        .hero-box {
+        .hero-overlay {
           padding: 34px 22px;
         }
 
@@ -307,21 +328,23 @@ const facebookLink = "https://www.facebook.com/brokersompo/";
     <main class="container">
       <section class="hero">
         <div class="hero-box">
-          <div class="eyebrow">ประกันเดินทางต่างประเทศ</div>
-          <h1>Bridge Worlds Travel</h1>
-          <p class="lead">
-            ตัวช่วยเพิ่มความอุ่นใจก่อนทุกทริป ครอบคลุมเหตุไม่คาดคิดที่พบบ่อย
-            เช่น ค่ารักษาพยาบาล เที่ยวบินล่าช้า กระเป๋าเดินทางเสียหาย
-            กระเป๋ามาช้า และพลาดต่อเครื่อง
-          </p>
+          <div class="hero-overlay">
+            <div class="eyebrow">ประกันเดินทางต่างประเทศ</div>
+            <h1>Bridge Worlds Travel</h1>
+            <p class="lead">
+              ตัวช่วยเพิ่มความอุ่นใจก่อนทุกทริป ครอบคลุมเหตุไม่คาดคิดที่พบบ่อย
+              เช่น ค่ารักษาพยาบาล เที่ยวบินล่าช้า กระเป๋าเดินทางเสียหาย
+              กระเป๋ามาช้า และพลาดต่อเครื่อง
+            </p>
 
-          <div class="button-row">
-            <a class="btn btn-primary" href={buyLink} target="_blank" rel="noopener">
-              ซื้อประกันเดินทาง
-            </a>
-            <a class="btn btn-outline" href="#coverage">
-              ดูความคุ้มครอง
-            </a>
+            <div class="button-row">
+              <a class="btn btn-primary" href={buyLink} target="_blank" rel="noopener">
+                ซื้อประกันเดินทาง
+              </a>
+              <a class="btn btn-outline" href="#coverage">
+                ดูความคุ้มครอง
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -332,6 +355,14 @@ const facebookLink = "https://www.facebook.com/brokersompo/";
           ก่อนเดินทางไปต่างประเทศ การมีประกันเดินทางช่วยลดความกังวลเรื่องค่าใช้จ่าย
           และช่วยให้พร้อมรับมือกับเหตุการณ์ไม่คาดคิดได้มากขึ้น
         </p>
+
+        <div class="infographic-wrap">
+          <img
+            class="infographic-image"
+            src="/travel-claims-infographic.png"
+            alt="อินโฟกราฟิก 5 เรื่องเคลมยอดฮิตของประกันเดินทาง"
+          />
+        </div>
 
         <div class="grid">
           <article class="card">
@@ -411,9 +442,7 @@ const facebookLink = "https://www.facebook.com/brokersompo/";
 
         <div class="contact-box">
           <h2>ติดต่อและข้อมูลผู้แนะนำประกัน</h2>
-          <div class="contact-item">
-            <strong>ผู้แนะนำประกัน:</strong> นายหน้าประกันวินาศภัย
-          </div>
+         
           <div class="contact-item">
             <strong>ใบอนุญาตเลขที่:</strong> 6204035177
           </div>
