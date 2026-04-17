@@ -2,23 +2,31 @@
 const links = [
   { href: "/", text: "หน้าแรก" },
   { href: "/#coverage", text: "ความคุ้มครอง" },
-  { href: "https://traveljoy.sompo.co.th?partner=suppharoek-rojwisitkun", text: "ซื้อประกัน" }
+  { href: "https://traveljoy.sompo.co.th?partner=suppharoek-rojwisitkun", text: "ซื้อประกัน" },
+  { href: "https://www.facebook.com/brokersompo/", text: "Facebook" }
 ];
 ---
 
-<header style="border-bottom:1px solid #e5e7eb; background:#ffffff;">
-  <div style="max-width:1100px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
-    <a href="/" style="font-weight:800;font-size:22px;color:#111827;text-decoration:none;">
+<header style="position:sticky; top:0; z-index:50; backdrop-filter: blur(10px); background: rgba(255,255,255,0.88); border-bottom:1px solid #e2e8f0;">
+  <div style="max-width:1120px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <a
+      href="/"
+      style="text-decoration:none; color:#0f172a; font-size:24px; font-weight:800; letter-spacing:-0.02em;"
+    >
       Bridge Worlds Travel
     </a>
 
-    <nav style="display:flex;gap:18px;flex-wrap:wrap;">
+    <nav style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
       {links.map((link) => (
         <a
           href={link.href}
-          style="text-decoration:none;color:#1f2937;font-weight:600;"
           target={link.href.startsWith("http") ? "_blank" : undefined}
           rel={link.href.startsWith("http") ? "noopener" : undefined}
+          style={
+            link.text === "ซื้อประกัน"
+              ? "text-decoration:none; color:#ffffff; background:#1d4ed8; padding:10px 16px; border-radius:12px; font-weight:700; box-shadow:0 8px 20px rgba(29,78,216,0.22);"
+              : "text-decoration:none; color:#334155; font-weight:600; padding:10px 14px; border-radius:12px;"
+          }
         >
           {link.text}
         </a>
