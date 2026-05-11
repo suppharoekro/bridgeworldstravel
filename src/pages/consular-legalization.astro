@@ -1,10 +1,38 @@
----
----
-
 <html lang="th">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) สำหรับ Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11068026607"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-11068026607');
+
+      function trackFormClick() {
+        gtag('event', 'click_google_form', {
+          event_category: 'lead',
+          event_label: 'Google Form - Consular Legalization'
+        });
+      }
+
+      function trackLineClick() {
+        gtag('event', 'click_line', {
+          event_category: 'lead',
+          event_label: 'Line broker1598 - Consular Legalization'
+        });
+      }
+
+      function trackFacebookClick() {
+        gtag('event', 'click_facebook', {
+          event_category: 'lead',
+          event_label: 'Facebook - Translation Bridges Worlds'
+        });
+      }
+    </script>
 
     <title>รับรองเอกสารกรมการกงสุล | แปลเอกสาร รับรองคำแปล และยื่นเอกสารแทน</title>
 
@@ -470,6 +498,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="button button-primary"
+              onclick="trackFormClick()"
             >
               ส่งเอกสารให้ประเมินเบื้องต้น
             </a>
@@ -479,6 +508,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="button button-facebook"
+              onclick="trackFacebookClick()"
             >
               ติดต่อทาง Facebook
             </a>
@@ -488,6 +518,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="button button-line"
+              onclick="trackLineClick()"
             >
               ติดต่อ Line ID: broker1598
             </a>
@@ -636,6 +667,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="contact-link"
+                    onclick="trackFacebookClick()"
                   >
                     Translation Bridges Worlds
                   </a>
@@ -648,6 +680,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="contact-link"
+                    onclick="trackLineClick()"
                   >
                     broker1598
                   </a>
@@ -660,6 +693,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="contact-link"
+                    onclick="trackFormClick()"
                   >
                     กรอกข้อมูลเพื่อให้เจ้าหน้าที่ตรวจสอบเบื้องต้น
                   </a>
@@ -695,6 +729,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="button button-primary"
+              onclick="trackFormClick()"
             >
               กรอกแบบฟอร์มประเมินเอกสาร
             </a>
@@ -704,6 +739,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="button button-facebook"
+              onclick="trackFacebookClick()"
             >
               สอบถามทาง Facebook
             </a>
@@ -713,6 +749,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="button button-line"
+              onclick="trackLineClick()"
             >
               แอด Line: broker1598
             </a>
