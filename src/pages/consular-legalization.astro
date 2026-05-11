@@ -6,178 +6,428 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>รับรองเอกสารกรมการกงสุล | แปลเอกสารและยื่นรับรองแทน</title>
+    <title>รับรองเอกสารกรมการกงสุล | แปลเอกสาร รับรองคำแปล และยื่นเอกสารแทน</title>
 
     <meta
       name="description"
-      content="บริการรับรองเอกสารกรมการกงสุล กระทรวงการต่างประเทศ แปลเอกสารราชการ รับรองคำแปล และดำเนินการยื่นเอกสารแทน สำหรับนำเอกสารไปใช้ต่างประเทศ ติดต่อ Facebook Translation Bridges Worlds หรือ Line ID broker1598"
+      content="บริการรับรองเอกสารกรมการกงสุล กระทรวงการต่างประเทศ แปลเอกสารราชการ รับรองคำแปล และดำเนินการยื่นเอกสารแทน สำหรับนำเอกสารไปใช้ต่างประเทศ ติดต่อผ่าน Facebook Translation Bridges Worlds และ Line ID broker1598"
     />
 
     <meta
       name="keywords"
-      content="รับรองเอกสารกรมการกงสุล, รับรองเอกสาร กระทรวงต่างประเทศ, แปลเอกสารราชการ, รับรองคำแปล, นิติกรณ์เอกสาร, ยื่นเอกสารกรมการกงสุล, Translation Bridges Worlds"
+      content="รับรองเอกสารกรมการกงสุล, แปลเอกสารราชการ, รับรองคำแปล, ยื่นเอกสารแทน, นิติกรณ์เอกสาร, รับรองเอกสารต่างประเทศ, Translation Bridges Worlds"
     />
 
     <style>
+      :root {
+        --bg: #f7f3eb;
+        --bg-soft: #fdfbf7;
+        --card: rgba(255, 255, 255, 0.88);
+        --text: #1f2937;
+        --muted: #5b6475;
+        --heading: #111827;
+        --primary: #1f3c88;
+        --primary-2: #4f46e5;
+        --accent: #b48a3c;
+        --accent-soft: #efe3c4;
+        --success: #16a34a;
+        --facebook: #1877f2;
+        --line: #06c755;
+        --border: rgba(180, 138, 60, 0.18);
+        --shadow: 0 20px 45px rgba(31, 41, 55, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         font-family: Arial, sans-serif;
-        line-height: 1.7;
-        color: #1f2937;
-        background: #f8fafc;
+        line-height: 1.75;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 12% 10%, rgba(180, 138, 60, 0.10), transparent 24%),
+          radial-gradient(circle at 88% 18%, rgba(79, 70, 229, 0.08), transparent 20%),
+          radial-gradient(circle at 50% 82%, rgba(31, 60, 136, 0.05), transparent 30%),
+          linear-gradient(180deg, #faf8f3 0%, #f5f0e6 45%, #f7f4ed 100%);
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(31, 60, 136, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(31, 60, 136, 0.03) 1px, transparent 1px);
+        background-size: 34px 34px;
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.12));
+        z-index: 0;
+      }
+
+      .page-wrap {
+        position: relative;
+        z-index: 1;
       }
 
       .container {
-        max-width: 960px;
+        max-width: 1140px;
         margin: 0 auto;
-        padding: 24px;
+        padding: 0 24px;
       }
 
       .hero {
-        background: linear-gradient(135deg, #2563eb, #6d28d9);
-        color: white;
-        padding: 48px 24px 56px;
-        border-radius: 0 0 28px 28px;
+        position: relative;
+        overflow: hidden;
+        padding: 42px 0 72px;
+        background:
+          linear-gradient(135deg, #18336f 0%, #2d4fb0 45%, #5d3fd3 100%);
+        border-radius: 0 0 34px 34px;
+        box-shadow: 0 20px 40px rgba(24, 51, 111, 0.20);
       }
 
-      .brand {
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 18% 22%, rgba(255,255,255,0.18), transparent 18%),
+          radial-gradient(circle at 85% 25%, rgba(255,255,255,0.12), transparent 16%),
+          radial-gradient(circle at 72% 80%, rgba(255,255,255,0.09), transparent 22%);
+        pointer-events: none;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 540px;
+        height: 540px;
+        right: -120px;
+        top: -100px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 45%, transparent 65%);
+        border: 1px solid rgba(255,255,255,0.10);
+        pointer-events: none;
+      }
+
+      .hero-card {
+        position: relative;
+        z-index: 1;
+        max-width: 920px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 28px;
+        padding: 30px;
+      }
+
+      .brand-row {
         display: flex;
         align-items: center;
-        gap: 16px;
-        margin-bottom: 28px;
+        gap: 18px;
+        margin-bottom: 26px;
       }
 
       .logo {
-        width: 88px;
-        height: 88px;
+        width: 96px;
+        height: 96px;
         border-radius: 999px;
-        background: white;
         object-fit: cover;
-        padding: 6px;
-        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+        background: #fff;
+        padding: 7px;
+        box-shadow: 0 12px 30px rgba(17, 24, 39, 0.18);
+        border: 1px solid rgba(255,255,255,0.6);
       }
 
       .brand-name {
-        font-size: 20px;
-        font-weight: 700;
         margin: 0;
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.86);
+      }
+
+      .brand-title {
+        margin: 4px 0 0;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.3;
+        color: white;
       }
 
       .brand-subtitle {
-        margin: 2px 0 0;
-        opacity: 0.9;
+        margin: 10px 0 0;
+        color: rgba(255,255,255,0.88);
+        font-size: 18px;
       }
 
       .hero h1 {
-        font-size: 36px;
-        line-height: 1.3;
         margin: 0 0 16px;
+        font-size: 48px;
+        line-height: 1.22;
+        color: #fff;
       }
 
-      .hero p {
+      .hero p.lead {
+        margin: 0;
         font-size: 18px;
-        margin: 0 0 24px;
+        color: rgba(255,255,255,0.94);
+        max-width: 820px;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .hero-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.12);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.18);
+        font-size: 14px;
       }
 
       .button-group {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 16px;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 14px 22px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        box-shadow: 0 10px 24px rgba(17, 24, 39, 0.14);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #1ca651, #139142);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #1aa24e, #12863e);
+      }
+
+      .btn-facebook {
+        background: linear-gradient(135deg, #2990ff, #1877f2);
+        color: white;
+      }
+
+      .btn-line {
+        background: linear-gradient(135deg, #12d665, #06c755);
+        color: white;
+      }
+
+      .main {
+        padding: 34px 0 54px;
       }
 
       .section {
-        background: white;
+        position: relative;
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        border-radius: 24px;
+        padding: 32px;
         margin-top: 24px;
-        padding: 28px;
-        border-radius: 18px;
-        box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+        backdrop-filter: blur(8px);
+      }
+
+      .section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 32px;
+        width: 84px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), #e3c680);
       }
 
       h2 {
-        color: #111827;
-        font-size: 26px;
-        margin-top: 0;
+        margin: 0 0 16px;
+        font-size: 34px;
+        line-height: 1.3;
+        color: var(--heading);
       }
 
       h3 {
-        color: #1f2937;
+        margin-top: 0;
+        color: #172554;
+        font-size: 21px;
       }
 
-      ul {
-        padding-left: 22px;
+      p {
+        margin: 0 0 14px;
       }
 
-      li {
-        margin-bottom: 8px;
-      }
-
-      .cta-button {
-        display: inline-block;
-        background: #16a34a;
-        color: white;
-        padding: 14px 22px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 700;
-      }
-
-      .cta-button:hover {
-        background: #15803d;
-      }
-
-      .facebook-button {
-        display: inline-block;
-        background: #1877f2;
-        color: white;
-        padding: 14px 22px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 700;
-      }
-
-      .facebook-button:hover {
-        background: #145dbf;
-      }
-
-      .line-button {
-        display: inline-block;
-        background: #06c755;
-        color: white;
-        padding: 14px 22px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 700;
-      }
-
-      .line-button:hover {
-        background: #05a647;
-      }
-
-      .note {
-        background: #fef3c7;
-        border-left: 5px solid #f59e0b;
-        padding: 16px;
-        border-radius: 10px;
-        margin-top: 16px;
+      .section-intro {
+        color: var(--muted);
+        margin-bottom: 4px;
       }
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
       }
 
       .card {
-        background: #f9fafb;
-        padding: 18px;
-        border-radius: 14px;
-        border: 1px solid #e5e7eb;
+        position: relative;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,245,237,0.96));
+        border: 1px solid rgba(180, 138, 60, 0.16);
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 12px 28px rgba(17, 24, 39, 0.06);
+      }
+
+      .card p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      .icon-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f3ead5, #fff9ed);
+        color: var(--accent);
+        font-size: 22px;
+        margin-bottom: 14px;
+        border: 1px solid rgba(180, 138, 60, 0.2);
+      }
+
+      .doc-list,
+      .who-list,
+      .faq-list,
+      .steps-list,
+      .contact-list {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .doc-list li,
+      .who-list li,
+      .faq-list li,
+      .steps-list li,
+      .contact-list li {
+        margin-bottom: 10px;
+      }
+
+      .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 24px;
+      }
+
+      .doc-item {
+        list-style: none;
+        position: relative;
+        padding-left: 18px;
+      }
+
+      .doc-item::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .highlight-box {
+        margin-top: 18px;
+        padding: 18px 18px 18px 20px;
+        background: linear-gradient(135deg, #fff8ea, #fdf3d7);
+        border: 1px solid rgba(180, 138, 60, 0.24);
+        border-left: 5px solid var(--accent);
+        border-radius: 16px;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 16px;
+      }
+
+      .step {
+        background: linear-gradient(180deg, #ffffff, #faf6ee);
+        border: 1px solid rgba(180, 138, 60, 0.18);
+        border-radius: 18px;
+        padding: 20px 16px;
+        text-align: center;
+        box-shadow: 0 10px 24px rgba(17, 24, 39, 0.05);
+      }
+
+      .step-number {
+        width: 42px;
+        height: 42px;
+        margin: 0 auto 12px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        color: white;
+        font-weight: 700;
+      }
+
+      .step p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--muted);
       }
 
       .contact-box {
-        background: #f0fdf4;
-        border: 1px solid #bbf7d0;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,243,235,0.96));
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 22px;
+        align-items: start;
+      }
+
+      .contact-panel {
+        background: rgba(255,255,255,0.72);
+        border: 1px solid rgba(180, 138, 60, 0.16);
+        border-radius: 18px;
+        padding: 20px;
       }
 
       .contact-list {
@@ -186,312 +436,512 @@
       }
 
       .contact-list li {
-        margin-bottom: 10px;
+        margin-bottom: 14px;
       }
 
-      .contact-list a {
-        color: #166534;
+      .contact-label {
+        display: block;
+        font-size: 13px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: #7a6a44;
+        margin-bottom: 4px;
+      }
+
+      .contact-link {
+        color: var(--primary);
         font-weight: 700;
         text-decoration: none;
+        word-break: break-word;
+      }
+
+      .contact-link:hover {
+        text-decoration: underline;
+      }
+
+      .cta-box {
+        background:
+          linear-gradient(135deg, rgba(31,60,136,0.95), rgba(79,70,229,0.94));
+        color: white;
+      }
+
+      .cta-box h2,
+      .cta-box p {
+        color: white;
+      }
+
+      .faq-item {
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(180, 138, 60, 0.16);
+      }
+
+      .faq-item:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .faq-item h3 {
+        margin-bottom: 8px;
       }
 
       footer {
+        padding: 14px 0 48px;
+      }
+
+      .footer-card {
+        background: rgba(255,255,255,0.82);
+        border: 1px solid rgba(180, 138, 60, 0.16);
+        box-shadow: var(--shadow);
+        border-radius: 24px;
+        padding: 28px;
         text-align: center;
-        color: #6b7280;
-        padding: 32px 16px;
       }
 
       .footer-logo {
-        width: 80px;
-        height: 80px;
-        border-radius: 999px;
+        width: 82px;
+        height: 82px;
+        border-radius: 50%;
         object-fit: cover;
+        background: #fff;
+        padding: 6px;
+        border: 1px solid rgba(180, 138, 60, 0.20);
+        box-shadow: 0 10px 22px rgba(17,24,39,0.08);
         margin-bottom: 12px;
       }
 
-      @media (max-width: 640px) {
-        .brand {
+      .footer-card p {
+        margin-bottom: 6px;
+      }
+
+      .tiny {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 980px) {
+        .grid,
+        .doc-grid,
+        .contact-grid,
+        .steps {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .hero {
+          padding: 24px 0 42px;
+          border-radius: 0 0 24px 24px;
+        }
+
+        .hero-card {
+          padding: 22px;
+        }
+
+        .brand-row {
           align-items: flex-start;
         }
 
         .logo {
-          width: 72px;
-          height: 72px;
+          width: 78px;
+          height: 78px;
         }
 
-        .hero h1 {
-          font-size: 28px;
+        .brand-title {
+          font-size: 24px;
         }
 
-        .hero p {
+        .brand-subtitle {
           font-size: 16px;
         }
 
-        .section {
-          padding: 22px;
+        .hero h1 {
+          font-size: 33px;
         }
 
-        .button-group a {
+        .hero p.lead {
+          font-size: 16px;
+        }
+
+        .grid,
+        .doc-grid,
+        .contact-grid,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        h2 {
+          font-size: 28px;
+        }
+
+        .section {
+          padding: 24px;
+        }
+
+        .button-group {
+          flex-direction: column;
+        }
+
+        .btn {
           width: 100%;
-          text-align: center;
         }
       }
     </style>
   </head>
 
   <body>
-    <header class="hero">
-      <div class="container">
-        <div class="brand">
-          <img
-            src="/translation-bridge-logo.jpg"
-            alt="Translation Bridges Worlds Logo"
-            class="logo"
-          />
-          <div>
-            <p class="brand-name">Translation Bridges Worlds</p>
-            <p class="brand-subtitle">แปลภาษาเชื่อมโยงโลก</p>
+    <div class="page-wrap">
+      <header class="hero">
+        <div class="container">
+          <div class="hero-card">
+            <div class="brand-row">
+              <img
+                src="/translation-bridge-logo.jpg"
+                alt="Translation Bridges Worlds Logo"
+                class="logo"
+              />
+              <div>
+                <p class="brand-name">Translation Bridges Worlds</p>
+                <p class="brand-title">แปลภาษาเชื่อมโยงโลก</p>
+                <p class="brand-subtitle">
+                  บริการแปลเอกสาร รับรองคำแปล และดำเนินการเอกสารเพื่อใช้ต่างประเทศ
+                </p>
+              </div>
+            </div>
+
+            <h1>รับรองเอกสารกรมการกงสุล บริการยื่นเอกสารแทน</h1>
+
+            <p class="lead">
+              บริการแปลเอกสารราชการ รับรองคำแปล และดำเนินการรับรองเอกสารที่กรมการกงสุล
+              กระทรวงการต่างประเทศ สำหรับผู้ที่ต้องการนำเอกสารไปใช้ต่างประเทศ
+              โดยช่วยตรวจสอบเอกสารเบื้องต้นและแนะนำขั้นตอนที่เหมาะสม
+            </p>
+
+            <div class="hero-meta">
+              <span class="hero-chip">แปลเอกสารราชการ</span>
+              <span class="hero-chip">รับรองคำแปล</span>
+              <span class="hero-chip">รับรองกรมการกงสุล</span>
+              <span class="hero-chip">ให้คำปรึกษาเบื้องต้น</span>
+            </div>
+
+            <div class="button-group">
+              <a
+                href="https://forms.gle/tEfGU4891dusVmJ8A"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                ส่งเอกสารให้ประเมินเบื้องต้น
+              </a>
+
+              <a
+                href="https://www.facebook.com/Translationbridgesworlds/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-facebook"
+              >
+                ติดต่อทาง Facebook
+              </a>
+
+              <a
+                href="https://line.me/ti/p/~broker1598"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-line"
+              >
+                ติดต่อ Line ID: broker1598
+              </a>
+            </div>
           </div>
         </div>
+      </header>
 
-        <h1>รับรองเอกสารกรมการกงสุล บริการยื่นเอกสารแทน</h1>
-        <p>
-          บริการแปลเอกสารราชการ รับรองคำแปล และดำเนินการรับรองเอกสารที่กรมการกงสุล
-          กระทรวงการต่างประเทศ สำหรับนำเอกสารไปใช้ต่างประเทศ
-        </p>
+      <main class="main">
+        <div class="container">
+          <section class="section">
+            <h2>บริการรับรองเอกสารกรมการกงสุล</h2>
+            <p class="section-intro">
+              สำหรับผู้ที่ต้องการนำเอกสารราชการไทยไปใช้ในต่างประเทศ
+            </p>
+            <p>
+              เอกสารบางประเภทอาจต้องผ่านการแปล รับรองคำแปล
+              และรับรองเอกสารจากกรมการกงสุล กระทรวงการต่างประเทศ
+              ก่อนนำไปใช้กับหน่วยงานต่างประเทศหรือสถานทูต
+            </p>
+            <p>
+              เราช่วยตรวจสอบรายละเอียดเบื้องต้น แนะนำแนวทางการเตรียมเอกสาร
+              และดำเนินการยื่นรับรองเอกสารแทน
+              เพื่อช่วยลดความยุ่งยากและประหยัดเวลาในการเดินทางของลูกค้า
+            </p>
+          </section>
 
-        <div class="button-group">
-          <a
-            href="https://forms.gle/tEfGU4891dusVmJ8A"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cta-button"
-          >
-            ส่งเอกสารให้ประเมินเบื้องต้น
-          </a>
+          <section class="section">
+            <h2>บริการของเรา</h2>
 
-          <a
-            href="https://www.facebook.com/Translationbridgesworlds/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="facebook-button"
-          >
-            ติดต่อทาง Facebook
-          </a>
+            <div class="grid">
+              <div class="card">
+                <div class="icon-badge">📄</div>
+                <h3>แปลเอกสารราชการ</h3>
+                <p>
+                  บริการแปลเอกสารราชการไทยเป็นภาษาอังกฤษ
+                  หรือภาษาที่ลูกค้าต้องการตามวัตถุประสงค์การใช้งาน
+                </p>
+              </div>
 
-          <a
-            href="https://line.me/ti/p/~broker1598"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="line-button"
-          >
-            ติดต่อ Line ID: broker1598
-          </a>
+              <div class="card">
+                <div class="icon-badge">✅</div>
+                <h3>รับรองคำแปล</h3>
+                <p>
+                  จัดทำคำรับรองคำแปลถูกต้อง
+                  เพื่อใช้ประกอบการรับรองเอกสารหรือนำไปยื่นหน่วยงานที่เกี่ยวข้อง
+                </p>
+              </div>
+
+              <div class="card">
+                <div class="icon-badge">🏛️</div>
+                <h3>รับรองกรมการกงสุล</h3>
+                <p>
+                  ดำเนินการยื่นเอกสารที่กรมการกงสุล กระทรวงการต่างประเทศ
+                  ตามประเภทเอกสารและเงื่อนไขของหน่วยงาน
+                </p>
+              </div>
+
+              <div class="card">
+                <div class="icon-badge">🌍</div>
+                <h3>ให้คำปรึกษาเบื้องต้น</h3>
+                <p>
+                  ตรวจสอบประเภทเอกสาร ประเทศปลายทาง
+                  และขั้นตอนที่ควรดำเนินการก่อนเริ่มงาน
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2>เอกสารที่รับดำเนินการ</h2>
+
+            <div class="doc-grid">
+              <div class="doc-item">สูติบัตร</div>
+              <div class="doc-item">มรณบัตร</div>
+              <div class="doc-item">ทะเบียนสมรส</div>
+              <div class="doc-item">ทะเบียนหย่า</div>
+              <div class="doc-item">ใบเปลี่ยนชื่อ</div>
+              <div class="doc-item">ใบเปลี่ยนนามสกุล</div>
+              <div class="doc-item">หนังสือรับรองบริษัท</div>
+              <div class="doc-item">หนังสือรับรองประวัติอาชญากรรม</div>
+              <div class="doc-item">ใบปริญญาและ Transcript</div>
+              <div class="doc-item">เอกสารราชการอื่น ๆ ตามวัตถุประสงค์</div>
+            </div>
+
+            <div class="highlight-box">
+              หมายเหตุ: เอกสารแต่ละประเภทและแต่ละประเทศปลายทางอาจมีเงื่อนไขแตกต่างกัน
+              แนะนำให้ส่งรายละเอียดให้ตรวจสอบก่อนดำเนินการ
+            </div>
+          </section>
+
+          <section class="section">
+            <h2>ขั้นตอนการใช้บริการ</h2>
+
+            <div class="steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <p>กรอกแบบฟอร์มและแจ้งประเภทเอกสาร</p>
+              </div>
+
+              <div class="step">
+                <div class="step-number">2</div>
+                <p>เจ้าหน้าที่ตรวจสอบข้อมูลเบื้องต้น</p>
+              </div>
+
+              <div class="step">
+                <div class="step-number">3</div>
+                <p>ประเมินขั้นตอน ระยะเวลา และค่าบริการ</p>
+              </div>
+
+              <div class="step">
+                <div class="step-number">4</div>
+                <p>ดำเนินการแปล รับรองคำแปล และยื่นเอกสาร</p>
+              </div>
+
+              <div class="step">
+                <div class="step-number">5</div>
+                <p>ส่งมอบเอกสารให้ลูกค้าหลังดำเนินการแล้วเสร็จ</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2>เหมาะสำหรับใคร</h2>
+            <ul class="who-list">
+              <li>ผู้ที่ต้องการนำเอกสารไทยไปใช้ต่างประเทศ</li>
+              <li>ผู้ที่ต้องใช้เอกสารประกอบการสมรสกับชาวต่างชาติ</li>
+              <li>ผู้ที่ต้องใช้เอกสารสมัครงาน สมัครเรียน หรือยื่นวีซ่า</li>
+              <li>บริษัทที่ต้องใช้หนังสือรับรองบริษัทหรือเอกสารนิติบุคคลในต่างประเทศ</li>
+              <li>ผู้ที่ไม่สะดวกเดินทางไปดำเนินการด้วยตนเอง</li>
+            </ul>
+          </section>
+
+          <section class="section contact-box">
+            <h2>ช่องทางติดต่อ</h2>
+
+            <div class="contact-grid">
+              <div class="contact-panel">
+                <p>
+                  สอบถามรายละเอียดบริการแปลเอกสาร รับรองคำแปล
+                  และรับรองเอกสารกรมการกงสุลได้ที่ช่องทางด้านล่าง
+                </p>
+
+                <ul class="contact-list">
+                  <li>
+                    <span class="contact-label">Facebook</span>
+                    <a
+                      href="https://www.facebook.com/Translationbridgesworlds/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="contact-link"
+                    >
+                      Translation Bridges Worlds
+                    </a>
+                  </li>
+
+                  <li>
+                    <span class="contact-label">Line ID</span>
+                    <a
+                      href="https://line.me/ti/p/~broker1598"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="contact-link"
+                    >
+                      broker1598
+                    </a>
+                  </li>
+
+                  <li>
+                    <span class="contact-label">Google Form</span>
+                    <a
+                      href="https://forms.gle/tEfGU4891dusVmJ8A"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="contact-link"
+                    >
+                      กรอกข้อมูลเพื่อให้เจ้าหน้าที่ตรวจสอบเบื้องต้น
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="contact-panel">
+                <h3>แนะนำก่อนส่งเอกสาร</h3>
+                <p>
+                  หากต้องการส่งรูปถ่ายหรือไฟล์เอกสารเพื่อประเมินเบื้องต้น
+                  แนะนำให้ปิดหรือเบลอเลขบัตรประชาชน
+                  หรือข้อมูลสำคัญก่อนส่งเพื่อความเป็นส่วนตัว
+                </p>
+                <p>
+                  หากเอกสารมีหลายฉบับหรือหลายประเภท
+                  สามารถกรอกข้อมูลคร่าว ๆ ก่อน แล้วเจ้าหน้าที่จะติดต่อกลับเพื่อสอบถามเพิ่มเติม
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section cta-box">
+            <h2>ส่งเอกสารให้ประเมินเบื้องต้น</h2>
+            <p>
+              หากไม่แน่ใจว่าเอกสารของท่านต้องแปล รับรองคำแปล
+              หรือรับรองเอกสารกรมการกงสุลหรือไม่
+              สามารถกรอกแบบฟอร์มเพื่อให้เจ้าหน้าที่ตรวจสอบเบื้องต้นได้
+            </p>
+
+            <div class="button-group">
+              <a
+                href="https://forms.gle/tEfGU4891dusVmJ8A"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                กรอกแบบฟอร์มประเมินเอกสาร
+              </a>
+
+              <a
+                href="https://www.facebook.com/Translationbridgesworlds/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-facebook"
+              >
+                สอบถามทาง Facebook
+              </a>
+
+              <a
+                href="https://line.me/ti/p/~broker1598"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-line"
+              >
+                แอด Line: broker1598
+              </a>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2>คำถามที่พบบ่อย</h2>
+
+            <div class="faq-item">
+              <h3>รับรองเอกสารกรมการกงสุลคืออะไร?</h3>
+              <p>
+                คือการนำเอกสารไปผ่านการรับรองจากกรมการกงสุล กระทรวงการต่างประเทศ
+                เพื่อใช้ประกอบการนำเอกสารไปใช้งานในต่างประเทศตามวัตถุประสงค์ต่าง ๆ
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>ต้องแปลเอกสารก่อนหรือไม่?</h3>
+              <p>
+                ขึ้นอยู่กับประเภทเอกสารและประเทศปลายทาง
+                เอกสารบางกรณีต้องแปลก่อน
+                และบางกรณีอาจต้องรับรองคำแปลก่อนนำไปยื่นรับรอง
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>ใช้เวลาดำเนินการกี่วัน?</h3>
+              <p>
+                ระยะเวลาดำเนินการขึ้นอยู่กับประเภทเอกสาร ความครบถ้วนของเอกสาร
+                และเงื่อนไขของหน่วยงานที่เกี่ยวข้อง
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>สามารถส่งเอกสารให้ตรวจสอบก่อนได้ไหม?</h3>
+              <p>
+                สามารถส่งข้อมูลผ่านแบบฟอร์มประเมินเอกสารเบื้องต้นได้
+                โดยแนะนำให้ปิดหรือเบลอข้อมูลสำคัญก่อนส่ง
+                หากต้องการความเป็นส่วนตัว
+              </p>
+            </div>
+          </section>
         </div>
-      </div>
-    </header>
+      </main>
 
-    <main class="container">
-      <section class="section">
-        <h2>บริการรับรองเอกสารกรมการกงสุล</h2>
-        <p>
-          หากท่านต้องการนำเอกสารราชการไทยไปใช้ในต่างประเทศ เอกสารบางประเภทอาจต้องผ่านการแปล
-          รับรองคำแปล และรับรองเอกสารจากกรมการกงสุล กระทรวงการต่างประเทศ
-          ก่อนนำไปใช้กับหน่วยงานต่างประเทศหรือสถานทูต
-        </p>
-
-        <p>
-          เรามีบริการช่วยตรวจสอบเอกสารเบื้องต้น แนะนำขั้นตอนที่เหมาะสม
-          และดำเนินการยื่นรับรองเอกสารแทน เพื่อช่วยลดความยุ่งยากและประหยัดเวลาในการเดินทาง
-        </p>
-      </section>
-
-      <section class="section">
-        <h2>บริการของเรา</h2>
-
-        <div class="grid">
-          <div class="card">
-            <h3>แปลเอกสารราชการ</h3>
-            <p>บริการแปลเอกสารราชการไทยเป็นภาษาอังกฤษ หรือภาษาที่ลูกค้าต้องการตามวัตถุประสงค์การใช้งาน</p>
-          </div>
-
-          <div class="card">
-            <h3>รับรองคำแปล</h3>
-            <p>จัดทำคำรับรองคำแปลถูกต้อง เพื่อใช้ประกอบการรับรองเอกสารหรือนำไปยื่นหน่วยงานที่เกี่ยวข้อง</p>
-          </div>
-
-          <div class="card">
-            <h3>รับรองกรมการกงสุล</h3>
-            <p>ดำเนินการยื่นเอกสารที่กรมการกงสุล กระทรวงการต่างประเทศ ตามประเภทเอกสารและเงื่อนไขของหน่วยงาน</p>
-          </div>
-
-          <div class="card">
-            <h3>ให้คำปรึกษาเบื้องต้น</h3>
-            <p>ตรวจสอบประเภทเอกสาร ประเทศปลายทาง และขั้นตอนที่ควรดำเนินการก่อนเริ่มงาน</p>
+      <footer>
+        <div class="container">
+          <div class="footer-card">
+            <img
+              src="/translation-bridge-logo.jpg"
+              alt="Translation Bridges Worlds Logo"
+              class="footer-logo"
+            />
+            <p><strong>Translation Bridges Worlds Office</strong></p>
+            <p>บริการแปลเอกสาร รับรองคำแปล และดำเนินการเอกสารเพื่อใช้ต่างประเทศ</p>
+            <p class="tiny">
+              Facebook: Translation Bridges Worlds | Line ID: broker1598
+            </p>
           </div>
         </div>
-      </section>
-
-      <section class="section">
-        <h2>เอกสารที่รับดำเนินการ</h2>
-        <ul>
-          <li>สูติบัตร</li>
-          <li>มรณบัตร</li>
-          <li>ทะเบียนสมรส</li>
-          <li>ทะเบียนหย่า</li>
-          <li>ใบเปลี่ยนชื่อ</li>
-          <li>ใบเปลี่ยนนามสกุล</li>
-          <li>หนังสือรับรองบริษัท</li>
-          <li>หนังสือรับรองประวัติอาชญากรรม</li>
-          <li>ใบปริญญาและ Transcript</li>
-          <li>เอกสารราชการอื่น ๆ ตามวัตถุประสงค์การใช้งาน</li>
-        </ul>
-
-        <div class="note">
-          หมายเหตุ: เอกสารแต่ละประเภทและแต่ละประเทศปลายทางอาจมีเงื่อนไขไม่เหมือนกัน
-          แนะนำให้ส่งรายละเอียดให้ตรวจสอบก่อนดำเนินการ
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>ขั้นตอนการใช้บริการ</h2>
-        <ol>
-          <li>กรอกแบบฟอร์มและแจ้งประเภทเอกสารที่ต้องการดำเนินการ</li>
-          <li>เจ้าหน้าที่ตรวจสอบข้อมูลเบื้องต้นและติดต่อกลับ</li>
-          <li>ประเมินขั้นตอน ระยะเวลา และค่าบริการ</li>
-          <li>ดำเนินการแปลเอกสาร รับรองคำแปล และยื่นรับรองเอกสารตามที่ตกลง</li>
-          <li>ส่งมอบเอกสารให้ลูกค้าหลังดำเนินการแล้วเสร็จ</li>
-        </ol>
-      </section>
-
-      <section class="section">
-        <h2>เหมาะสำหรับใคร</h2>
-        <ul>
-          <li>ผู้ที่ต้องการนำเอกสารไทยไปใช้ต่างประเทศ</li>
-          <li>ผู้ที่ต้องใช้เอกสารประกอบการสมรสกับชาวต่างชาติ</li>
-          <li>ผู้ที่ต้องใช้เอกสารสมัครงาน สมัครเรียน หรือยื่นวีซ่า</li>
-          <li>บริษัทที่ต้องใช้หนังสือรับรองบริษัทหรือเอกสารนิติบุคคลในต่างประเทศ</li>
-          <li>ผู้ที่ไม่สะดวกเดินทางไปดำเนินการด้วยตนเอง</li>
-        </ul>
-      </section>
-
-      <section class="section contact-box">
-        <h2>ช่องทางติดต่อ</h2>
-        <p>
-          สอบถามรายละเอียดบริการแปลเอกสาร รับรองคำแปล และรับรองเอกสารกรมการกงสุลได้ที่ช่องทางด้านล่าง
-        </p>
-
-        <ul class="contact-list">
-          <li>
-            Facebook:
-            <a
-              href="https://www.facebook.com/Translationbridgesworlds/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Translation Bridges Worlds
-            </a>
-          </li>
-          <li>
-            Line ID:
-            <a
-              href="https://line.me/ti/p/~broker1598"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              broker1598
-            </a>
-          </li>
-          <li>
-            แบบฟอร์มประเมินเอกสาร:
-            <a
-              href="https://forms.gle/tEfGU4891dusVmJ8A"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              กรอกข้อมูลเพื่อให้เจ้าหน้าที่ตรวจสอบเบื้องต้น
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>ส่งเอกสารให้ประเมินเบื้องต้น</h2>
-        <p>
-          หากไม่แน่ใจว่าเอกสารของท่านต้องแปล รับรองคำแปล
-          หรือรับรองเอกสารกรมการกงสุลหรือไม่ สามารถกรอกแบบฟอร์มเพื่อให้เจ้าหน้าที่ตรวจสอบเบื้องต้นได้
-        </p>
-
-        <div class="button-group">
-          <a
-            href="https://forms.gle/tEfGU4891dusVmJ8A"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cta-button"
-          >
-            กรอกแบบฟอร์มประเมินเอกสาร
-          </a>
-
-          <a
-            href="https://www.facebook.com/Translationbridgesworlds/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="facebook-button"
-          >
-            สอบถามทาง Facebook
-          </a>
-
-          <a
-            href="https://line.me/ti/p/~broker1598"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="line-button"
-          >
-            แอด Line: broker1598
-          </a>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>คำถามที่พบบ่อย</h2>
-
-        <h3>รับรองเอกสารกรมการกงสุลคืออะไร?</h3>
-        <p>
-          คือการนำเอกสารไปผ่านการรับรองจากกรมการกงสุล กระทรวงการต่างประเทศ
-          เพื่อใช้ประกอบการนำเอกสารไปใช้งานในต่างประเทศตามวัตถุประสงค์ต่าง ๆ
-        </p>
-
-        <h3>ต้องแปลเอกสารก่อนหรือไม่?</h3>
-        <p>
-          ขึ้นอยู่กับประเภทเอกสารและประเทศปลายทาง เอกสารบางกรณีต้องแปลก่อน
-          และบางกรณีอาจต้องรับรองคำแปลก่อนนำไปยื่นรับรอง
-        </p>
-
-        <h3>ใช้เวลาดำเนินการกี่วัน?</h3>
-        <p>
-          ระยะเวลาดำเนินการขึ้นอยู่กับประเภทเอกสาร ความครบถ้วนของเอกสาร
-          และเงื่อนไขของหน่วยงานที่เกี่ยวข้อง
-        </p>
-
-        <h3>สามารถส่งเอกสารให้ตรวจสอบก่อนได้ไหม?</h3>
-        <p>
-          สามารถส่งข้อมูลผ่านแบบฟอร์มประเมินเอกสารเบื้องต้นได้
-          โดยแนะนำให้ปิดหรือเบลอข้อมูลสำคัญก่อนส่ง หากต้องการความเป็นส่วนตัว
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      <img
-        src="/translation-bridge-logo.jpg"
-        alt="Translation Bridges Worlds Logo"
-        class="footer-logo"
-      />
-      <p><strong>Translation Bridges Worlds Office</strong></p>
-      <p>บริการแปลเอกสาร รับรองคำแปล และดำเนินการเอกสารเพื่อใช้ต่างประเทศ</p>
-      <p>
-        Facebook: Translation Bridges Worlds | Line ID: broker1598
-      </p>
-    </footer>
+      </footer>
+    </div>
   </body>
 </html>
