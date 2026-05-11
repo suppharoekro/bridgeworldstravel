@@ -10,12 +10,12 @@
 
     <meta
       name="description"
-      content="บริการรับรองเอกสารกรมการกงสุล กระทรวงการต่างประเทศ แปลเอกสารราชการ รับรองคำแปล และดำเนินการยื่นเอกสารแทน สำหรับนำเอกสารไปใช้ต่างประเทศ"
+      content="บริการรับรองเอกสารกรมการกงสุล กระทรวงการต่างประเทศ แปลเอกสารราชการ รับรองคำแปล และดำเนินการยื่นเอกสารแทน สำหรับนำเอกสารไปใช้ต่างประเทศ ติดต่อ Facebook Translation Bridges Worlds หรือ Line ID broker1598"
     />
 
     <meta
       name="keywords"
-      content="รับรองเอกสารกรมการกงสุล, รับรองเอกสาร กระทรวงต่างประเทศ, แปลเอกสารราชการ, รับรองคำแปล, นิติกรณ์เอกสาร, ยื่นเอกสารกรมการกงสุล"
+      content="รับรองเอกสารกรมการกงสุล, รับรองเอกสาร กระทรวงต่างประเทศ, แปลเอกสารราชการ, รับรองคำแปล, นิติกรณ์เอกสาร, ยื่นเอกสารกรมการกงสุล, Translation Bridges Worlds"
     />
 
     <style>
@@ -36,8 +36,36 @@
       .hero {
         background: linear-gradient(135deg, #2563eb, #6d28d9);
         color: white;
-        padding: 56px 24px;
+        padding: 48px 24px 56px;
         border-radius: 0 0 28px 28px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      .logo {
+        width: 88px;
+        height: 88px;
+        border-radius: 999px;
+        background: white;
+        object-fit: cover;
+        padding: 6px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+      }
+
+      .brand-name {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .brand-subtitle {
+        margin: 2px 0 0;
+        opacity: 0.9;
       }
 
       .hero h1 {
@@ -49,6 +77,13 @@
       .hero p {
         font-size: 18px;
         margin: 0 0 24px;
+      }
+
+      .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 16px;
       }
 
       .section {
@@ -85,22 +120,38 @@
         border-radius: 12px;
         text-decoration: none;
         font-weight: 700;
-        margin-top: 12px;
       }
 
       .cta-button:hover {
         background: #15803d;
       }
 
-      .secondary-button {
+      .facebook-button {
         display: inline-block;
-        background: #2563eb;
+        background: #1877f2;
         color: white;
-        padding: 12px 18px;
-        border-radius: 10px;
+        padding: 14px 22px;
+        border-radius: 12px;
         text-decoration: none;
         font-weight: 700;
-        margin-top: 10px;
+      }
+
+      .facebook-button:hover {
+        background: #145dbf;
+      }
+
+      .line-button {
+        display: inline-block;
+        background: #06c755;
+        color: white;
+        padding: 14px 22px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .line-button:hover {
+        background: #05a647;
       }
 
       .note {
@@ -124,13 +175,50 @@
         border: 1px solid #e5e7eb;
       }
 
+      .contact-box {
+        background: #f0fdf4;
+        border: 1px solid #bbf7d0;
+      }
+
+      .contact-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .contact-list li {
+        margin-bottom: 10px;
+      }
+
+      .contact-list a {
+        color: #166534;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
       footer {
         text-align: center;
         color: #6b7280;
         padding: 32px 16px;
       }
 
+      .footer-logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 999px;
+        object-fit: cover;
+        margin-bottom: 12px;
+      }
+
       @media (max-width: 640px) {
+        .brand {
+          align-items: flex-start;
+        }
+
+        .logo {
+          width: 72px;
+          height: 72px;
+        }
+
         .hero h1 {
           font-size: 28px;
         }
@@ -142,6 +230,11 @@
         .section {
           padding: 22px;
         }
+
+        .button-group a {
+          width: 100%;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -149,20 +242,52 @@
   <body>
     <header class="hero">
       <div class="container">
+        <div class="brand">
+          <img
+            src="/translation-bridge-logo.jpg"
+            alt="Translation Bridges Worlds Logo"
+            class="logo"
+          />
+          <div>
+            <p class="brand-name">Translation Bridges Worlds</p>
+            <p class="brand-subtitle">แปลภาษาเชื่อมโยงโลก</p>
+          </div>
+        </div>
+
         <h1>รับรองเอกสารกรมการกงสุล บริการยื่นเอกสารแทน</h1>
         <p>
           บริการแปลเอกสารราชการ รับรองคำแปล และดำเนินการรับรองเอกสารที่กรมการกงสุล
           กระทรวงการต่างประเทศ สำหรับนำเอกสารไปใช้ต่างประเทศ
         </p>
 
-        <a
-          href="https://forms.gle/tEfGU4891dusVmJ8A"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cta-button"
-        >
-          ส่งเอกสารให้ประเมินเบื้องต้น
-        </a>
+        <div class="button-group">
+          <a
+            href="https://forms.gle/tEfGU4891dusVmJ8A"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-button"
+          >
+            ส่งเอกสารให้ประเมินเบื้องต้น
+          </a>
+
+          <a
+            href="https://www.facebook.com/Translationbridgesworlds/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="facebook-button"
+          >
+            ติดต่อทาง Facebook
+          </a>
+
+          <a
+            href="https://line.me/ti/p/~broker1598"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="line-button"
+          >
+            ติดต่อ Line ID: broker1598
+          </a>
+        </div>
       </div>
     </header>
 
@@ -250,6 +375,46 @@
         </ul>
       </section>
 
+      <section class="section contact-box">
+        <h2>ช่องทางติดต่อ</h2>
+        <p>
+          สอบถามรายละเอียดบริการแปลเอกสาร รับรองคำแปล และรับรองเอกสารกรมการกงสุลได้ที่ช่องทางด้านล่าง
+        </p>
+
+        <ul class="contact-list">
+          <li>
+            Facebook:
+            <a
+              href="https://www.facebook.com/Translationbridgesworlds/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Translation Bridges Worlds
+            </a>
+          </li>
+          <li>
+            Line ID:
+            <a
+              href="https://line.me/ti/p/~broker1598"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              broker1598
+            </a>
+          </li>
+          <li>
+            แบบฟอร์มประเมินเอกสาร:
+            <a
+              href="https://forms.gle/tEfGU4891dusVmJ8A"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              กรอกข้อมูลเพื่อให้เจ้าหน้าที่ตรวจสอบเบื้องต้น
+            </a>
+          </li>
+        </ul>
+      </section>
+
       <section class="section">
         <h2>ส่งเอกสารให้ประเมินเบื้องต้น</h2>
         <p>
@@ -257,14 +422,34 @@
           หรือรับรองเอกสารกรมการกงสุลหรือไม่ สามารถกรอกแบบฟอร์มเพื่อให้เจ้าหน้าที่ตรวจสอบเบื้องต้นได้
         </p>
 
-        <a
-          href="https://forms.gle/tEfGU4891dusVmJ8A"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cta-button"
-        >
-          กรอกแบบฟอร์มประเมินเอกสาร
-        </a>
+        <div class="button-group">
+          <a
+            href="https://forms.gle/tEfGU4891dusVmJ8A"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-button"
+          >
+            กรอกแบบฟอร์มประเมินเอกสาร
+          </a>
+
+          <a
+            href="https://www.facebook.com/Translationbridgesworlds/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="facebook-button"
+          >
+            สอบถามทาง Facebook
+          </a>
+
+          <a
+            href="https://line.me/ti/p/~broker1598"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="line-button"
+          >
+            แอด Line: broker1598
+          </a>
+        </div>
       </section>
 
       <section class="section">
@@ -297,8 +482,16 @@
     </main>
 
     <footer>
-      <p>Translation Bridge Worlds Office</p>
+      <img
+        src="/translation-bridge-logo.jpg"
+        alt="Translation Bridges Worlds Logo"
+        class="footer-logo"
+      />
+      <p><strong>Translation Bridges Worlds Office</strong></p>
       <p>บริการแปลเอกสาร รับรองคำแปล และดำเนินการเอกสารเพื่อใช้ต่างประเทศ</p>
+      <p>
+        Facebook: Translation Bridges Worlds | Line ID: broker1598
+      </p>
     </footer>
   </body>
 </html>
